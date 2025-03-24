@@ -1,0 +1,46 @@
+Pasos a seguir para crear un nuevo servidor con Nodey express
+
+1.- estar en la carpeta exacta donde queramos generar nuestro nuevo servidor
+
+2.- inicializar un paquete de npm 
+    $ npm init
+    responder a todas las preguntas si quereis o dar enter a todo
+    esto nos genera un archivo package.json (archivo de configuracion de nuestro
+    proyecto) y una carpeta node_modules que contendrá los archivos de las 
+    librerias que instalaremos
+
+2.5.- Crear un archivo llamado .gitignore para incluir todas aquellas carpetas que no queramos guardar en github
+
+3.- instalar la librería express js que es la librería que vamos a usar para crear servidores
+    $ npm i express
+
+    esto me genera una carpeta node_modules que es la que contiene todos los 
+    archivos y carpetas de las liberias que voy a usar en mi proyecto.
+    nos ha generado tambien package-lock.json que informa de las versiones de 
+    las librerias que han sido utilizadas en el momento en el que se ha creado 
+    el proyecto
+
+4.- creo un archivo de inicio de mi aplicacion index.js o app.js 
+
+5.- en este index.js creo mi codigo generando un servidor con express
+6.- instalamos como liberia o dependencia de desarrollo nodemon mediante el comando
+    $ npm i nodemon 
+    $ npm i --save-dev nodemon --> Cuando es para desarrolladores 
+
+    esta librería tira y levanta el servidor cada vez que detecta un cambio en nuestro código
+
+7.- Modificar el package.json para poder levantar nuestro servidor a través de npm, para ello creamos un script que sea: 
+    "dev": "nodemon index.js";
+
+8.- Creamos algun endpoint
+
+9.- PARA MANDAR HTML
+crear una carpeta que va a contener todos los html que necesitemos
+
+10.- Crear una carpeta public para almacenar todo el contenido estático de mi 
+página (fotos, videos, audios, estilos css y código js)
+
+11.- Configurar la carpeta public de servir contenido estático mediante el middleware
+app.use(express.static(__dirname + "/public"));
+
+12.- para levantar el servidor usar en la terminal el comando npm run dev

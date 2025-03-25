@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container-xxl {
+  width: 100%;
+  max-width: 43.75rem;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+.section-1 {
+  text-align: center;
+  padding-block: 5rem;
+  background-color: aquamarine;
+
+  h1 {
+    font-size: 2.25rem;
+    padding-bottom: 5rem;
+  }
+
+  img {
+    width: 700px;
+    height: 100%;
+  }
+}
+
+.section-2 {
+  text-align: center;
+  padding-block: 32px;
+  background-color: blueviolet;
+  color: white;
+
+  h2 {
+    padding-bottom: 1rem;
+  }
+}
+
+.section-3 {
+  background-color: gray;
+
+  .container-xxl {
+    text-align: center;
+    padding-block: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .col {
+        display: flex;
+        justify-content: center;
+      }
+
+      .col img {
+        width: 100%;
+        transform: translateX(5rem) translateY(3rem);
+        z-index: 5;
+      }
+
+      .col p {
+        background-color: blue;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        transform: translateX(-2rem) translateY(-3rem);
+        padding: 2rem;
+        z-index: 4;
+      }
+    }
+    a {
+      display: inline-block;
+
+      padding: 10px 20px;
+      border: 2px solid black;
+      text-decoration: none;
+      text-align: center;
+      color: black;
+      background-color: white;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      margin-top: 4rem;
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+.section-4 {
+  background-color: burlywood;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .col {
+      display: flex;
+      flex-direction: column;
+      padding-inline: 1rem;
+      align-items: center;
+      img {
+        padding-top: 3rem;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      a {
+        padding-block: 32px;
+      }
+    }
+  }
+}

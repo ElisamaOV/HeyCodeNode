@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./modules/links.ejs') %>
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <%- include('./modules/navbar.ejs') %>
+    <main>
+      <div class="container-xxl">
+        <div class="row">
+          <% result.forEach((elem) => { %>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="profile-card-2">
+              <img
+                src="/images/designers/<%= elem.img_designer?elem.img_designer:'default.jpg'%>"
+                class="img img-responsive"
+              />
+              <div class="profile-name">
+                <%= elem.name %> <%= elem.lastname %>
+              </div>
+              <div class="profile-city">Diseñador/a de <%= elem.city%></div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </main>
+    <%- include('./modules/footer.ejs') %>
+  </body>
+</html>

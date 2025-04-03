@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>Bienvenid@s</h1>
+    <p>Welcome</p>
+
+    <hr />
+    <form
+      action="/trainers/registerTrainer"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <h3>Añadir yogui</h3>
+      <div>
+        <label for="">nombre</label>
+        <input type="text" name="nombre" />
+      </div>
+      <div>
+        <label for="">Apellidos</label>
+        <input type="text" name="apellidos" />
+      </div>
+      <div>
+        <label for="">email</label>
+        <input type="text" name="email" />
+      </div>
+      <div>
+        <label for="inputFile"><img src="/assets/upload.png" alt="" /></label>
+        <input id="inputFile" type="file" name="img" hidden />
+      </div>
+      <p style="color: red">
+        <%= typeof message != 'undefined' ? message: null %>
+      </p>
+      <button>aceptar</button>
+      <button type="reset">limpiar</button>
+    </form>
+
+    <% result.forEach((elem)=>{ %>
+    <div>
+      <h1>nombre: <%= elem.name %></h1>
+      <h1>apellidos: <%= elem.lastname %></h1>
+      <h1>email: <%= elem.email %></h1>
+      <img
+        style="width: 150px"
+        src="/images/trainers/<%= elem.avatar_img?elem.avatar_img:'defaultPet.jpg' %>"
+        alt=""
+      />
+      <button
+        onclick="window.location.href='/trainers/oneTrainer/<%= elem.trainer_id %>'"
+      >
+        ver mas
+      </button>
+      <hr />
+    </div>
+    <% }) %>
+  </body>
+</html>

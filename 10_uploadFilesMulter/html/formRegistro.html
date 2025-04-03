@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Formulario de registro de cliente</h2>
+    <!-- CUANDO UN INPUT TIENE ALGUN INPUT TIPO FILE DEBEMOS PONER EN LA ETIQUETA FORM UNA NUEVA PROPIEDAD LLAMADA ENCTYPE Y TIENE QUE SER MULTIPART/FORMDATA -->
+    <form
+      action="/users/UserRegister"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div>
+        <label for="">Nombre</label>
+        <input type="text" placeholder="Introduce nombre" name="nombre" />
+      </div>
+      <div>
+        <label for="">Email</label>
+        <input type="text" placeholder="Introduce email" name="email" />
+      </div>
+      <div>
+        <label for="">Password</label>
+        <input type="password" placeholder="Introduce password" name="pass" />
+      </div>
+      <div>
+        <input type="file" name="img" />
+      </div>
+      <button>aceptar</button>
+      <button type="button" onclick="window.location.href='/'">cancelar</button>
+    </form>
+  </body>
+</html>

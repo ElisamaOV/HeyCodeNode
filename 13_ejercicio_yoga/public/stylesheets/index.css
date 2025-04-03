@@ -1,0 +1,145 @@
+header {
+  .div-img {
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    display: flex;
+  }
+
+  .div-img img {
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    display: flex;
+    object-fit: cover;
+  }
+
+  .div-transform {
+    border-radius: 1rem;
+    transform: translateY(-4rem);
+    background-color: #ddecfb;
+    h1 {
+      font-size: 60px;
+      padding-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+
+  button {
+    border-radius: 2rem;
+    padding: 0.5rem;
+    color: white;
+    background-color: #ed685d;
+    border: none;
+  }
+}
+
+.section-1 {
+  background-color: #bbabc3;
+  h2 {
+    font-weight: bold;
+    font-size: 3rem;
+    padding-top: 2rem;
+  }
+
+  p {
+    font-weight: bold;
+    padding-block: 1rem;
+  }
+
+  button {
+    border-radius: 2rem;
+    padding: 0.5rem;
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+    margin-bottom: 2rem;
+  }
+
+  img {
+    border-radius: 1rem;
+    max-width: 100%;
+    width: 60%;
+    height: 600px;
+    object-fit: cover;
+  }
+}
+
+.section-2 {
+  h2 {
+    padding-block: 3rem;
+    font-size: 48px;
+  }
+  p {
+    padding-inline: 10rem;
+  }
+  button {
+    width: 8rem;
+    height: 8rem;
+    color: white;
+    background-color: #ed685d;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem;
+    margin-bottom: 10rem;
+  }
+}
+
+.section-3 {
+  background-color: #bbabc3;
+  h2 {
+    color: white;
+    font-size: 3rem;
+    padding-top: 3rem;
+  }
+}
+
+.section-4 {
+  background-color: #ed685d;
+  img {
+    width: 500px;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+    transform: translateX(5rem) translateY(5rem);
+  }
+
+  input {
+    margin-bottom: 1rem;
+  }
+
+  button {
+    border-radius: 2rem;
+    padding: 0.5rem;
+    color: white;
+    background-color: #ed685d;
+    border: none;
+  }
+
+  .div-custom-form {
+    border-radius: 1rem;
+    padding-bottom: 1rem;
+    transform: translateY(-7rem) translateX(-6rem);
+  }
+  .button-space {
+    margin-right: 1rem;
+  }
+}
+
+.card-img-top {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}

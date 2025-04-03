@@ -1,0 +1,19 @@
+a {
+  text-decoration: none;
+}
+button {
+  color: black;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+ul li {
+  list-style-type: none;
+}
+.section-1 {
+  background-image: url(/images/bg-pizza.jpg);
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

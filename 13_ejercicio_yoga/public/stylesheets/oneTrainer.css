@@ -1,0 +1,28 @@
+body {
+  background-color: #a8aeec;
+  overflow: hidden;
+}
+
+.div-custom {
+  background-color: white;
+  width: 100%;
+  max-width: 417px;
+  height: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.img-custom {
+  border-radius: 1rem;
+}
+
+.row {
+  padding-top: 15rem;
+}
+
+button {
+  color: white;
+  background-color: black;
+  padding: 0.75rem 1.5rem;
+  border-radius: 3rem;
+}

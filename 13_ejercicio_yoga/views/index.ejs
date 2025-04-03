@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+  </head>
+  <body>
+    <header>
+      <div
+        class="container-xxl pt-5 d-flex flex-column justify-content-center align-items-center text-center"
+      >
+        <div class="row d-flex flex-column">
+          <div class="col d-flex justify-content-center">
+            <div class="div-img">
+              <img
+                src="/assets/1709724257315.jpg"
+                alt=""
+                class="border border-1"
+              />
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center align-items-center">
+            <div
+              class="d-flex flex-column w-50 align-content-center p-5 div-transform align-items-center"
+            >
+              <h1>Pilates y Yoga Center Teachers</h1>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Molestiae ullam, mollitia quo adipisci, accusamus corrupti dolor
+                explicabo, eum aperiam in perferendis delectus ut? Placeat quas
+                optio quaerat impedit debitis itaque!
+              </p>
+              <button class="w-25 mt-5">ABOUT US</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-1">
+        <div class="container-fluid">
+          <div class="row d-flex flex-column">
+            <div class="col">
+              <h2>Our Team</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Explicabo distinctio a inventore cumque, labore aspernatur
+                nesciunt dolorem tempora, placeat dolore fugiat perspiciatis
+                qui! Natus alias illum temporibus omnis magnam minima!
+              </p>
+              <button>LEARN MORE</button>
+            </div>
+            <div class="col d-flex justify-content-center pb-5">
+              <img src="/assets/1709721734584.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col d-flex flex-column align-items-center">
+              <h2>Our Philosophy</h2>
+              <p class="text-center pb-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                quasi a odit harum magni minima impedit eos eligendi dolores
+                quod culpa reprehenderit nihil nemo ullam, ratione fugiat quia,
+                est consequatur deleniti recusandae placeat consequuntur,
+                exercitationem itaque. Adipisci corrupti iure velit. Molestiae
+                quod assumenda ad repellat atque officiis illo magni vitae.
+              </p>
+              <button onclick="window.location.href='/centers'">
+                Our Centers
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-3">
+        <div class="container-xxl">
+          <h2 class="text-center pb-4">Our trainers</h2>
+          <div class="row">
+            <% trainers.forEach((elem) => { %>
+            <div
+              class="col-12 col-sm-6 col-lg-3 d-flex justify-content-center pb-5"
+            >
+              <div class="card" style="width: 18rem">
+                <img
+                  class="card-img-top"
+                  src="/images/trainers/<%= elem.trainer_img?elem.trainer_img:'defaultTrainer.jpg'%>"
+                  alt="Card image"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">
+                    <%= elem.name %> <%= elem.last_name %>
+                  </h5>
+                  <p class="card-text"><%= elem.specialty %></p>
+                  <a
+                    href="#"
+                    class="btn btn-primary"
+                    onclick="window.location.href='/trainers/oneTrainer/<%= elem.id %>'"
+                    >Ver más</a
+                  >
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+      <section class="section-4">
+        <div class="container-xxl">
+          <div class="row">
+            <div class="col d-flex flex-column align-items-center">
+              <h2 class="fs-1 pt-5 pb-5">Join our Trainers</h2>
+              <img src="/assets/1709721708811.jpg" alt="" />
+              <div class="bg-white p-4 div-custom-form">
+                <form
+                  action="/"
+                  class="d-flex flex-column"
+                  method="post"
+                  enctype="multipart/form-data"
+                >
+                  <label for="">Nombre</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    name="name"
+                    required
+                  />
+                  <label for="">Apellidos</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your lastname"
+                    name="last_name"
+                    required
+                  />
+                  <label for="">Biografia</label>
+                  <textarea name="biography" id="" required></textarea>
+                  <label for="">Especialidad</label>
+                  <select class="mb-3" name="specialty" id="" required>
+                    <option value="Vinyasa Yoga">Vinyasa Yoga</option>
+                    <option value="Ashtanga Yoga">Ashtanga Yoga</option>
+                    <option value="Yoga Restaurativo">Yoga Restaurativo</option>
+                    <option value="Hatha Yoga">Hatha Yoga</option>
+                    <option value="Rocket Yoga">Rocket Yoga</option>
+                    <option value="Kundalini Yoga">Kundalini Yoga</option>
+                    <option value="Iyengar Yoga">Iyengar Yoga</option>
+                  </select>
+                  <input type="file" name="img" />
+                  <br />
+                  <div class="d-flex">
+                    <button>Aceptar</button>
+                    <button type="button">Limpiar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

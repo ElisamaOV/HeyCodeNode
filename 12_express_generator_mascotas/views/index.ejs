@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="window.location.href='/pets/createPet'">
+          Crear mascota
+        </button>
+      </nav>
+    </header>
+    <main>
+      <h1><%= title %></h1>
+      <p>Welcome</p>
+      <p>Welcome to myPet.com</p>
+      <div class="galeria">
+        <% mascotas.forEach((elem) => { %>
+        <div class="card">
+          <img
+            src="/images/petsImgs/<%= elem.pet_img?elem.pet_img:'defaultPet.jpg' %>"
+            alt=""
+          />
+          <h2><%= elem.name %></h2>
+          <h3><%= elem.specie %></h3>
+          <h3><%= elem.breed %></h3>
+          <button onclick="window.location.href='/pets/onePet/<%= elem.id %>'">
+            Ver más
+          </button>
+        </div>
+        <%}) %>
+      </div>
+    </main>
+  </body>
+</html>

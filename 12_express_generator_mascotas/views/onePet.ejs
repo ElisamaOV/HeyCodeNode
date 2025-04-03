@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="window.location.href='/pets/createPet'">
+          Crear mascota
+        </button>
+      </nav>
+    </header>
+    <main>
+      <h1>INFORMACION DE UNA MASCOTA</h1>
+      <div>
+        <h2>nombre: <%= perro.name %></h2>
+        <h3>Raza: <%= perro.breed %></h3>
+        <img
+          src="/images/petsImgs/<%= perro.pet_img?perro.pet_img:'defaultPet.jpg' %>"
+          alt=""
+        />
+        <button onclick="window.location.href='/'">Volver</button>
+      </div>
+      <br />
+      <div>
+        <button
+          type="button"
+          onclick="window.location.href='/pets/editPet/<%= perro.id %>'"
+        >
+          MODIFICAR
+        </button>
+        <button
+          type="button"
+          onclick="window.location.href='/pets/logicalElimination/<%= perro.id %>'"
+        >
+          ELIMINAR LOGICO
+        </button>
+        <button
+          type="button"
+          onclick="window.location.href='/pets/totalElimination/<%= perro.id %>'"
+        >
+          ELIMINAR TOTALMENTE
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

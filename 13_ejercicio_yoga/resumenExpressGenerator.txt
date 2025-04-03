@@ -1,0 +1,60 @@
+1.- Abrir la terminal en la carpeta donde queramos instalar nuestra carpeta del proyecto
+2.- Hay que tener express instalado en global (este paso solo realizarlo si anteriormente no se ha hecho
+    se instala desde la terminal general de mac o la cms de windows).
+    $ npm install -g express-generator
+3.- Generar el proyecto 
+    $ express --view=ejs --git "nombreProyecto"
+    Esto nos genera una carpeta llamada nombreProyecto y dentro toda la estructura, con vistas ejs
+4.- Entrar en la carpeta
+    $ cd nombreProyecto
+5.- Instalar las librerías que vienen por defecto con expressGenerator
+    $ npm i 
+6.- Instalar las librerías que vamos a usar
+    $npm i multer mysql2
+7.- En package.json añadir el script "dev": "nodemon ./bin/www"
+8.- Levantar el server
+    $ npm run dev
+9.- Crear la base de datos
+    Si vamos a hacer borrado lógico, poner un campo en la tabla is_del default false
+10.- Pensar cuantas entidades tiene nuestra aplicacion. Para ello basarse en CRUD
+     C -- CREATE
+     R -- READ
+     U -- UPDATE
+     D -- DELETE
+11.- Crear una ruta por cada una de las entidades teniendo en cuenta que necesitamos un ruteo para aquella funcionalidad que no tenga que ver con la base de datos que es la index.route
+     (Es la que abra el home y las páginas estáticas)
+12.- Establecer conexión con bd. Creamos db.js en la carpeta config y configuramos la conexión (host, nombre de la base de datos, password, database)
+13.- Crear los middleware
+
+     los que creamos en app.js ---> Creamos un middleware por cada ruta
+     app.use('/', indexRouter)
+     app.use('/trainer', trainerRouter)
+     app.use('/center', centerRouter)
+
+14.- Crear los archivos de rutas
+     requerir express
+     instanciar express.Router
+     crear las rutas (ruoter.get o .post)
+     exportar las rutas con module.exports
+
+15.- En app importamos las rutas para luego usarlas en los app.use
+
+16.- Cuando en endpoint tiene que llamar a la base de datos(insert, modificar o leer) tenemos que requerir en el archivo de rutas el  contenido de db.js 
+y usamos el metodo .query() al cual le pasamos como parametro la sql y el callback que se va a ejecutar cuando llegue la respuesta de la bd (que puede ser un error o un resultado).
+Si es parametrizada (que ponemos ? dentro de la sql) entonces los parámetros son
+
+    connection.query(sql, array con los parámetros, callback con error o resultado);
+
+17.- Cuando hacemos peticiones a la base de datos (que son asícrona), la respuesta del endpoint tiene que estar dentro del callback
+18.- Para responder con un html creado a partir de una vista ejs usamos el método render
+    res.render('nombre de la vista ejs', datos)
+    * DATOS ES UN OBJETO CON PROPIEDADES {data: "Hola"}
+19.- Cuando queramos pintar el valor de una variable de js en las vistas imprescindible <%= %> 
+20.- En un formulario:
+     - cada input tiene una propiedad name cuyo valor es un string que determina el nombre de la propiedad del objeto que llegará al back dentro de req.body
+     - si vamos a subir un archivo tenemos que tener un input tipo "file" y sería necesario el uso de middleware "multer" y que el enctype de la etiqueta form sea multipart/formdata
+     el nombre del input tipo file tiene que coincidir con el parámetro que se le pasa al método single de multer (en nuestro caso "img")
+     - un boton que esté dentro de un formulario es, por defecto, de tipo submit, lo cual implica que automáticamente cuando clicamos sobre el provoca que se ejecute el end-point que ponemos
+     en la propiedad action de la etiqueta form y provoca refresco de las páginas
+     Si no queremos dicho comportamiento por defecto, cambiamos el tipo a "button"
+     - el action es una ruta de tipo post y debemos poner tambien la propiedad method="post"

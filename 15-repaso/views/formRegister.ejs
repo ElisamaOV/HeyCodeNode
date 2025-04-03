@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/users/register" method="post">
+        <h2>formulario de registro</h2>
+        <input 
+            type="text"
+            placeholder="nombre"
+            name="name"
+            >
+        <input 
+            type="text"
+            placeholder="apellido"
+            name="lastname"
+            >
+        <input 
+            type="text"
+            placeholder="email"
+            name="email"
+            >
+        <input 
+            type="password"
+            placeholder="password"
+            name="password"
+            >
+        <input 
+            type="password"
+            placeholder="repite password"
+            name="repPassword"
+            >
+        <button type="submit">aceptar</button>
+        <p><%= typeof message != "undefined"?message:null %></p>
+    </form>
+</body>
+</html>

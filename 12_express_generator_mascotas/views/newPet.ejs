@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/newPet.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="window.location.href='/pets/createPet'">
+          Crear mascota
+        </button>
+      </nav>
+    </header>
+    <main>
+      <div class="principal">
+        <form action="/pets/newPet" method="post" enctype="multipart/form-data">
+          <div>
+            <label for="">Nombre</label>
+            <input type="text" name="nombre" />
+          </div>
+          <div>
+            <label for="">Especies</label>
+            <input type="text" name="especie" />
+          </div>
+          <div>
+            <label for="">Raza</label>
+            <input type="text" name="raza" />
+          </div>
+          <div>
+            <label for="">Foto</label>
+            <input type="file" name="img" />
+          </div>
+          <button>Aceptar</button>
+          <button type="button" onclick="window.location.href='/'">
+            Cancelar
+          </button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

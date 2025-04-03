@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile</title>
+    <%- include('modules/links.ejs') %>
+  </head>
+  <body>
+    <%- include('modules/navbar.ejs') %>
+    <main class="overflow-hidden">
+      <div class="row">
+        <div class="col">
+          <h1>
+            Profile del director: <%= finalResult.name %> <%=
+            finalResult.lastname %>
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h2>email de contacto: <%= finalResult.email %></h2>
+          <h3>fecha de nacimiento: <%= finalResult.birth_date %></h3>
+          <img
+            src="/images/directors/<%= finalResult.director_img?finalResult.director_img:'defaultDirector.png'%>"
+            alt=""
+            style="width: 200px"
+          />
+        </div>
+        <div class="col">
+          <div class="mt-4">
+            <button
+              class="btn btn-primary"
+              onclick="window.location.href='/director/editDirectorForm/<%= finalResult.id_director %>'"
+            >
+              Editar
+            </button>
+            <button
+              class="btn btn-danger"
+              onclick="window.location.href='/director/delLogicDirector/<%= finalResult.id_director %>'"
+            >
+              Eliminar logico
+            </button>
+            <button
+              class="btn btn-danger"
+              onclick="window.location.href='/director/delTotalDirector/<%= finalResult.id_director %>'"
+            >
+              Eliminar total
+            </button>
+          </div>
+          <div class="mt-5">
+            <h3>Añadir Película</h3>
+            <form
+              action="/film/createFilm/<%= finalResult.id_director %>"
+              enctype="multipart/form-data"
+              method="post"
+            >
+              <div class="mb-3">
+                <label for="exampleInputTitle" class="form-label">Titulo</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputTitle"
+                  aria-describedby="titleHelp"
+                  name="title"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputRelease" class="form-label"
+                  >Año de estreno</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputRelease"
+                  name="release_year"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputImg" class="form-label"
+                  >sube una imagen</label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  id="exampleInputImg"
+                  name="img"
+                />
+              </div>
+
+              <button type="submit" class="btn btn-outline-info">
+                Añadir película
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h2>Lista de peliculas</h2>
+          <div class="d-flex flex-wrap gap-3 justify-content-center pt-4">
+            <% finalResult.films.forEach((elem) => { %>
+            <div class="card" style="width: 18rem">
+              <img
+                src="/images/films/<%= elem.film_img?elem.film_img:'default.png' %>"
+                class="card-img-top"
+                alt="/"
+              />
+              <div class="card-body">
+                <h5 class="card-title"><%= elem.title %></h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a
+                  href="/film/filmProfile/<%= elem.id_film %>"
+                  class="btn btn-primary m-1"
+                  >Go film</a
+                >
+                <a
+                  href="/film/editFilm/<%= elem.id_film %>"
+                  class="btn btn-primary m-1"
+                  >Edit film</a
+                >
+                <a href="#" class="btn btn-primary m-1">Del logic</a>
+                <a href="#" class="btn btn-primary m-1">Del Total</a>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('modules/footer.ejs') %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

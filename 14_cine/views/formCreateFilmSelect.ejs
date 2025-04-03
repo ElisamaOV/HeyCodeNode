@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HOME</title>
+    <%- include('./modules/links.ejs') %>
+  </head>
+  <body>
+    <%- include('./modules/navbar.ejs') %>
+    <main>
+      <h1>FORMULARIO DE CREACION DE PELICULA</h1>
+      <div class="d-flex justify-content-center">
+        <form
+          action="/film/createFilmSelect"
+          enctype="multipart/form-data"
+          method="post"
+        >
+          <div class="mb-3">
+            <label for="">Director</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="id_director"
+            >
+              <option selected disabled>Selecciona director</option>
+              <% result.forEach((elem) => { %>
+              <option value="<%= elem.id_director%>">
+                <%= `${elem.name} ${elem.lastname} `%>
+              </option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputTitle" class="form-label">Titulo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputTitle"
+              aria-describedby="titleHelp"
+              name="title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputRelease" class="form-label"
+              >Año de estreno</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputRelease"
+              name="release_year"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputImg" class="form-label"
+              >sube una imagen</label
+            >
+            <input
+              type="file"
+              class="form-control"
+              id="exampleInputImg"
+              name="img"
+            />
+          </div>
+          <button type="submit" class="btn btn-outline-info">
+            Añadir película
+          </button>
+        </form>
+      </div>
+    </main>
+    <%- include('./modules/footer.ejs') %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

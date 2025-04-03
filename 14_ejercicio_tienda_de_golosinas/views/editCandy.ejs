@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Golosinas la Chari</title>
+    <%- include('./modules/links.ejs') %>
+  </head>
+  <body>
+    <main>
+      <%- include('./modules/navbar.ejs') %>
+      <h1>EDICION</h1>
+      <form
+        action="/candies/editCandy/<%= candy.id %>"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div>
+          <label for="">nombre</label>
+          <input type="text" name="name" value="<%= candy.name %>" />
+        </div>
+        <div>
+          <label for="">Tipo de candy</label>
+          <input
+            type="text"
+            name="candy_type"
+            value="<%= candy.candy_type %>"
+          />
+        </div>
+        <div>
+          <label for="inputFoto">Cambia de foto</label>
+          <input type="file" id="inputFoto" hidden name="img" />
+        </div>
+        <div>
+          <button>Aceptar</button>
+          <button
+            type="button"
+            onclick="window.location.href='/candies/candy/<%= candy.id%>'"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </main>
+    <%- include('./modules/footer.ejs') %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

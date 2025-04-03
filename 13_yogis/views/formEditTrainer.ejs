@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>FORMULARIO DE EDICION DE UN ENTRENADOR</h1>
+    <form
+      action="/trainers/editTrainer/<%= result.trainer_id %>"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div>
+        <label for="">nombre</label>
+        <input type="text" name="name" value="<%= result.name %>" />
+      </div>
+      <div>
+        <label for="">Apellidos</label>
+        <input type="text" name="lastname" value="<%= result.lastname %>" />
+      </div>
+      <div>
+        <label for="">email</label>
+        <input type="text" name="email" value="<%= result.email %>" />
+      </div>
+      <div>
+        <label for="inputFoto">Cambia de foto</label>
+        <input type="file" id="inputFoto" hidden name="img" />
+      </div>
+      <div>
+        <button>Aceptar</button>
+        <button
+          type="button"
+          onclick="window.location.href='/trainers/oneTrainer/<%= result.trainer_id%>'"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>profile de un yogi</h1>
+    <h3>nombre: <%= yogi.name %></h3>
+    <h3>apellido: <%= yogi.lastname %></h3>
+    <h3>email: <%= yogi.email %></h3>
+    <img
+      style="width: 300px"
+      src="/images/trainers/<%= yogi.avatar_img?yogi.avatar_img:'defaultPet.jpg' %>"
+      alt=""
+    />
+    <button
+      onclick="window.location.href='/trainers/editTrainer/<%=yogi.trainer_id%>'"
+    >
+      Editar
+    </button>
+    <button onclick="window.location.href='/'">Volver</button>
+    <button
+      onclick="window.location.href='/trainers/totalElimination/<%= yogi.trainer_id %>'"
+    >
+      Eliminar total
+    </button>
+    <button
+      onclick="window.location.href='/trainers/logicalElimination/<%= yogi.trainer_id %>'"
+    >
+      Eliminar logico
+    </button>
+  </body>
+</html>

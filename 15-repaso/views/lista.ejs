@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Lista de usuarios</h1>
+    <button onclick="window.location.href='/'">volver</button>
+    <% result.forEach((elem)=>{ %>
+        <div>
+            <%= elem.name %>
+            <%= elem.lastname %>
+            <button onclick="window.location.href='/users/showOneUser/<%= elem.id_user %>'">ver mas</button>
+            <br>
+            <hr>
+        </div>
+    <% }) %>
+
+</body>
+</html>

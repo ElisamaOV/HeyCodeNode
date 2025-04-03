@@ -1,0 +1,10 @@
+body {
+  background-color: #a8aeec;
+}
+.div-form {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 3rem;
+  width: 500px;
+  height: 600px;
+}

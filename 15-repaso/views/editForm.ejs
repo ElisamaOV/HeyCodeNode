@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/users/edit/<%= result.id_user %>" method="post">
+        <input 
+            type="text"
+            name="name"
+            placeholder="nombre"
+            value="<%= result.name %>"
+            >
+            <input 
+            type="text"
+            name="lastname"
+            placeholder="apellido"
+            value="<%= result.lastname %>"
+        >
+        <button>aceptar</button>
+        <button>cancelar</button>
+    </form>
+</body>
+</html>

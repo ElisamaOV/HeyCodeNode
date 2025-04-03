@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Mascota</title>
+  </head>
+  <body>
+    <h1>FORMULARIO DE EDICIÓN DE PERRO</h1>
+    <form
+      action="/pets/editPet/<%= perro.id %>"
+      enctype="multipart/form-data"
+      method="post"
+    >
+      <div>
+        <label for="name">Nombre</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value="<%= perro.name %>"
+          required
+        />
+      </div>
+      <div>
+        <label for="specie">Especie</label>
+        <input
+          type="text"
+          name="specie"
+          id="specie"
+          value="<%= perro.specie %>"
+          required
+        />
+      </div>
+      <div>
+        <label for="breed">Raza</label>
+        <input
+          type="text"
+          name="breed"
+          id="breed"
+          value="<%= perro.breed %>"
+          required
+        />
+      </div>
+      <div>
+        <label for="changePhoto">Cambiar foto</label>
+        <input type="file" name="img" id="changePhoto" />
+      </div>
+      <button type="submit">Aceptar</button>
+      <button
+        type="button"
+        onclick="window.location.href='/onePet/<%= perro.id %>'"
+      >
+        Volver
+      </button>
+    </form>
+  </body>
+</html>

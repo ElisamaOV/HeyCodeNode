@@ -109,6 +109,61 @@ class DesignerController {
       }
     });
   };
+
+  showDesignerf = (req, res) => {
+    const { id } = req.params;
+    let sql1 = 'select * from designer where id_designer = ?';
+    let sql2 = 'select * from design where id_designer = ?';
+    connection.query(sql1, [id], (err1, result1) => {
+      if (err1) {
+        throw err1;
+      } else {
+        connection.query(sql2, [id], (err2, result2) => {
+          if (err2) {
+            throw err2;
+          } else {
+            res.render('designerf', { result1: result1[0], result2 });
+          }
+        });
+      }
+    });
+  };
+
+  showLogin = (req, res) => {
+    res.render('login', { advice: '' });
+  };
+
+  login = (req, res) => {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      res.render('login', { advice: 'Falta uno de los campos' });
+    } else {
+      let sql = 'select * from designer where email = ?';
+      connection.query(sql, [email], (err, result) => {
+        if (err) {
+          throw err;
+        } else {
+          if (result.length == 0) {
+            res.render('login', { advice: 'El email no existe' });
+          } else {
+            let hash = result[0].password;
+            bcrypt.compare(password, hash, (errHash, resultCompare) => {
+              if (errHash) {
+                throw errHash;
+              } else {
+                if (!resultCompare) {
+                  res.render('login', { advice: 'Contraseña incorrecta' });
+                } else
+                  res.redirect(
+                    `/designer/showDesigner/${result[0].id_designer}`
+                  );
+              }
+            });
+          }
+        }
+      });
+    }
+  };
 }
 
 module.exports = new DesignerController();

@@ -10,5 +10,8 @@ router.post(
   designerController.createDesigner
 );
 router.get('/showDesigner/:id', designerController.showDesigner);
+router.get('/showDesignerf/:id', designerController.showDesignerf);
+router.get('/login', designerController.showLogin);
+router.post('/login', designerController.login);
 
 module.exports = router;

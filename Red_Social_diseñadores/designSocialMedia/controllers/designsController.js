@@ -51,6 +51,19 @@ class DesignsControllers {
     });
   };
 
+  showDesignf = (req, res) => {
+    const { id } = req.params;
+    let sql = 'select * from design where id_design = ?';
+    connection.query(sql, [id], (err, result) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log(result[0]);
+        res.render('designf', { result: result[0] });
+      }
+    });
+  };
+
   editDesignGet = (req, res) => {
     const { id } = req.params;
     let sql = 'select * from design where id_design = ?';

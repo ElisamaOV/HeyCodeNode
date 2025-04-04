@@ -10,6 +10,7 @@ router.post(
   designsControllers.createDesign
 );
 router.get('/showDesign/:id', designsControllers.showDesign);
+router.get('/showDesignf/:id', designsControllers.showDesignf);
 router.get('/editDesign/:id', designsControllers.editDesignGet);
 router.post(
   '/editDesign/:id',

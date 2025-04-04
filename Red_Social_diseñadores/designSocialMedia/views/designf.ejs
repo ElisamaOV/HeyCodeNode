@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./modules/links.ejs') %>
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <%- include('./modules/navbar.ejs') %>
+    <main class="overflow-hidden">
+      <h1 class="text-center mt-5 mb-5">Detalles y Caracteristicas</h1>
+      <section>
+        <div class="container-xxl">
+          <div class="row row-gap-5">
+            <div class="col-12 col-sm-6 col-lg-6 d-flex justify-content-center">
+              <img
+                class=""
+                src="/images/designs/<%= result.img_designer?result.img_designer:'default.jpg'%>"
+                alt="imagen"
+              />
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-6 d-flex justify-content-center flex-column fs-5 row-gap-1 align-items-center"
+            >
+              <p>Name: <%= result.name%></p>
+              <p>Genero: <%= result.orientation%></p>
+              <p>Tela: <%= result.fabric%></p>
+              <p>Color: <%= result.color%></p>
+              <p>Categoria: <%= result.type%></p>
+              <p>Descripcion: <%= result.description %></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include('./modules/footer.ejs') %>
+  </body>
+</html>

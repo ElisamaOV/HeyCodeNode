@@ -90,6 +90,19 @@ class DesignerController {
       }
     }
   };
+
+  showDesigner = (req, res) => {
+    const { id } = req.params;
+    let sql = 'select * from designer where id_designer = ?';
+    connection.query(sql, [id], (err, result) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log('**********************', result);
+        res.render('designer', { result });
+      }
+    });
+  };
 }
 
 module.exports = new DesignerController();

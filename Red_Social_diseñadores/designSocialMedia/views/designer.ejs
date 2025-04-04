@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./modules/links.ejs') %>
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <%- include('./modules/navbar.ejs') %>
+    <main>
+      <div class="container-xxl">
+        <h1 class="text-center pt-5">ESTOY EN UN DISEÑADOR</h1>
+        <div class="row">
+          <div class="col">
+            <img
+              src="/images/designers/<%= result.img_designer?result.img_designer:'default.jpg'%>"
+              alt="Img-Designer"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('./modules/footer.ejs') %>
+  </body>
+</html>

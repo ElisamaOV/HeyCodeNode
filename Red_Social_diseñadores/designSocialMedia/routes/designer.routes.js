@@ -9,5 +9,6 @@ router.post(
   uploadFile('designers'),
   designerController.createDesigner
 );
+router.get('/showDesigner/:id', designerController.showDesigner);
 
 module.exports = router;

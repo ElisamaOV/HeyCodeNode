@@ -7,115 +7,113 @@
   <body>
     <%- include('./modules/navbar.ejs') %>
     <main>
-      <h1 class="text-center pt-5">Registrate como diseñador!</h1>
-      <div class="container-xxl">
-        <form
-          action="/designer/createDesigner"
-          method="post"
-          enctype="multipart/form-data"
-        >
-          <div class="row d-flex">
-            <div class="col">
-              <div class="form-group">
-                <label for="exampleInputName">Nombre</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputName"
-                  aria-describedby="nameHelp"
-                  name="name"
-                />
+      <section>
+        <h1 class="text-center pt-5">Registrate como diseñador!</h1>
+        <div class="container-xxl">
+          <form
+            action="/designer/createDesigner"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="row d-flex flex-wrap">
+              <div class="col-12 col-sm-6 col-lg-6">
+                <div class="form-group">
+                  <label for="exampleInputName">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputName"
+                    name="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputLastname">Apellidos</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputLastname"
+                    name="lastname"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail"
+                    name="email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword">Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword"
+                    name="password"
+                  />
+                </div>
               </div>
-              <div class="form-group">
-                <label for="exampleInputLastname">Apellidos</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputLastname"
-                  name="lastname"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail">E-mail</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail"
-                  name="email"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword">Contraseña</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword"
-                  name="password"
-                />
+              <div class="col-12 col-sm-6 col-lg-6">
+                <div class="form-group">
+                  <label for="exampleInputPassword2"
+                    >Confirmar Contraseña</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword2"
+                    name="repPassword"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputDescription">Descripcion</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputDescription"
+                    name="description"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputCity">Ciudad</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputCity"
+                    name="city"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPhone">Teléfono</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputPhone"
+                    name="phone"
+                  />
+                </div>
+                <p class="text-danger"><%= advice %></p>
+                <p class="text-success"><%= confirm %></p>
               </div>
             </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="exampleInputPassword2">Confirmar Contraseña</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword2"
-                  name="repPassword"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputDescription">Descripcion</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputDescription"
-                  name="description"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputCity">Ciudad</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputCity"
-                  name="city"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPhone">Teléfono</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputPhone"
-                  name="phone"
-                />
-              </div>
-              <p class="text-danger"><%= advice %></p>
-              <p class="text-success"><%= confirm %></p>
-            </div>
-          </div>
-          <div class="form-group pt-5">
-            <label for="exampleInputPhote"
-              ><img
-                src="/assets/upload.jpg"
-                style="width: 50px"
-                alt=""
-                class=""
+            <div class="form-group pt-5">
+              <label for="exampleInputPhote">
+                <img src="/assets/upload.jpg" style="width: 50px" alt="" />
+                Agrega tu foto de perfil
+              </label>
+              <input
+                type="file"
+                class="form-control"
+                id="exampleInputPhote"
+                name="img"
+                hidden
               />
-              Agrega tu foto de perfil</label
-            >
-            <input
-              type="file"
-              class="form-control"
-              id="exampleInputPhote"
-              name="img"
-              hidden
-            />
-          </div>
-          <button type="submit" class="btn btn-primary mt-5">Submit</button>
-        </form>
-      </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+          </form>
+        </div>
+      </section>
     </main>
     <%- include('./modules/footer.ejs') %>
   </body>

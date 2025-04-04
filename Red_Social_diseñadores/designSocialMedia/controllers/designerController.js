@@ -93,13 +93,19 @@ class DesignerController {
 
   showDesigner = (req, res) => {
     const { id } = req.params;
-    let sql = 'select * from designer where id_designer = ?';
-    connection.query(sql, [id], (err, result) => {
-      if (err) {
-        throw err;
+    let sql1 = 'select * from designer where id_designer = ?';
+    let sql2 = 'select * from design where id_designer = ?';
+    connection.query(sql1, [id], (err1, result1) => {
+      if (err1) {
+        throw err1;
       } else {
-        console.log('**********************', result);
-        res.render('designer', { result });
+        connection.query(sql2, [id], (err2, result2) => {
+          if (err2) {
+            throw err2;
+          } else {
+            res.render('designer', { result1: result1[0], result2 });
+          }
+        });
       }
     });
   };

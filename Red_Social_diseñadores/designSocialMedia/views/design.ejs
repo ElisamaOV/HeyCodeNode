@@ -27,12 +27,26 @@
               <p>Color: <%= result.color%></p>
               <p>Categoria: <%= result.type%></p>
               <p>Descripcion: <%= result.description %></p>
-              <button
-                class="btn btn-primary"
-                onclick="window.location.href='/designs/editDesign/<%= result.id_design %>'"
-              >
-                Editar
-              </button>
+              <div>
+                <button
+                  class="btn btn-primary"
+                  onclick="window.location.href='/designs/editDesign/<%= result.id_design %>'"
+                >
+                  Editar
+                </button>
+                <button
+                  class="btn btn-primary"
+                  onclick="window.location.href='/designs/delete/<%= result.id_design%>'"
+                >
+                  Elimina
+                </button>
+                <button
+                  class="btn btn-primary"
+                  onclick="window.location.href='/designer/showDesigner/<%= result.id_designer%>'"
+                >
+                  Volver
+                </button>
+              </div>
             </div>
           </div>
         </div>

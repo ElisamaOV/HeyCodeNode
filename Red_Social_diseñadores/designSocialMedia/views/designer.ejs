@@ -35,10 +35,6 @@
                   <p>- Procedencia: <%= result1.city %></p>
                   <p>- Telefono de contacto: <%= result1.phone %></p>
                   <p>- Email: <%= result1.email %></p>
-                  <footer class="blockquote-footer pt-2">
-                    Cita del diseñador:
-                    <cite title="Source Title">Source Title</cite>
-                  </footer>
                 </blockquote>
               </div>
             </div>
@@ -49,6 +45,12 @@
           onclick="window.location.href='/designs/createDesign/<%= result1.id_designer%>'"
         >
           Añadir nuevo diseño
+        </button>
+        <button
+          class="btn btn-primary mt-5 mb-5"
+          onclick="window.location.href='/designer/login'"
+        >
+          Volver
         </button>
       </div>
       <section class="section-1">

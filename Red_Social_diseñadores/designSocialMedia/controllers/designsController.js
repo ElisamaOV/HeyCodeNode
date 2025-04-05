@@ -104,6 +104,48 @@ class DesignsControllers {
       }
     });
   };
+
+  showMan = (req, res) => {
+    let sql = "select * from design where orientation = 'Hombre'";
+    connection.query(sql, (err, result) => {
+      if (err) {
+        throw err;
+      } else {
+        res.render('man', { result: result });
+      }
+    });
+  };
+
+  showWoman = (req, res) => {
+    let sql = "select * from design where orientation = 'Mujer'";
+    connection.query(sql, (err, result) => {
+      if (err) {
+        throw err;
+      } else {
+        res.render('woman', { result: result });
+      }
+    });
+  };
+
+  delete = (req, res) => {
+    const { id } = req.params;
+    let sqlDesigner = 'select id_designer from design where id_design = ?';
+    let sqlDelete = 'delete from design where id_design = ?';
+    connection.query(sqlDesigner, [id], (err, result) => {
+      if (err) {
+        throw err;
+      } else {
+        let id_designer = result[0].id_designer;
+        connection.query(sqlDelete, [id], (errDel, resultDel) => {
+          if (errDel) {
+            throw errDel;
+          } else {
+            res.redirect(`/designer/showDesigner/${id_designer}`);
+          }
+        });
+      }
+    });
+  };
 }
 
 module.exports = new DesignsControllers();

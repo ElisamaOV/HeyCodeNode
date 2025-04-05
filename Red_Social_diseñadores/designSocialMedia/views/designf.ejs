@@ -28,6 +28,12 @@
               <p>Categoria: <%= result.type%></p>
               <p>Descripcion: <%= result.description %></p>
             </div>
+            <button
+              class="btn btn-primary"
+              onclick="window.location.href='/designer/showDesignerf/<%= result.id_designer%>'"
+            >
+              Volver
+            </button>
           </div>
         </div>
       </section>

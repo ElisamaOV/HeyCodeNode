@@ -17,5 +17,8 @@ router.post(
   uploadFile('designs'),
   designsControllers.editDesignPost
 );
+router.get('/man', designsControllers.showMan);
+router.get('/woman', designsControllers.showWoman);
+router.get('/delete/:id', designsControllers.delete);
 
 module.exports = router;

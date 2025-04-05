@@ -36,11 +36,16 @@
                   name="password"
                 />
               </div>
+              <p class="pt-3 text-danger"><%= advice %></p>
             </div>
-            <p><%= advice %></p>
             <div class="col-12 col-md-8 mt-4 text-center">
-              <button type="submit" class="btn btn-primary w-100">
-                Submit
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="window.location.href='/'"
+              >
+                Volver
               </button>
             </div>
           </div>

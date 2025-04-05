@@ -7,7 +7,7 @@
   <body>
     <%- include('./modules/navbar.ejs') %>
     <main>
-      <h1 class="text-center pt-5">Seccion de Hombre</h1>
+      <h1 class="text-center pt-5">Seccion de Mujer</h1>
       <div class="container-xxl mt-5">
         <div class="row">
           <% result.forEach((elem) => { %>
@@ -21,7 +21,7 @@
                   src="/images/designs/<%= elem.img_designer?elem.img_designer:'default.jpg'%>"
                   class="img img-responsive"
                 />
-                <div class="profile-name text-success">
+                <div class="profile-name">
                   <%= elem.name %> <%= elem.lastname %>
                 </div>
               </div>

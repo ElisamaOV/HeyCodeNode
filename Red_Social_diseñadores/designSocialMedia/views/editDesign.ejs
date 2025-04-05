@@ -9,17 +9,15 @@
     <main>
       <h1 class="text-center mt-5 mb-5">Detalles y Características</h1>
       <div class="container-xxl">
-        <div class="row row-gap-5 align-items-md-center">
+        <div class="row row-gap-5 align-items-center">
           <div class="col-12 col-sm-6 col-lg-6 d-flex justify-content-center">
             <img
-              class="img-fluid"
+              class="img-fluid shadow-lg"
               src="/images/designs/<%= result.img_designer?result.img_designer:'default.jpg'%>"
               alt="imagen"
             />
           </div>
-          <div
-            class="col-12 col-md-6 col-lg-6 fs-5 row-gap-1 align-items-center"
-          >
+          <div class="col-12 col-md-6 col-lg-6 fs-5 align-items-center">
             <form
               action="/designs/editDesign/<%= result.id_design %>"
               method="post"
@@ -98,12 +96,12 @@
                   hidden
                 />
               </div>
-              <button type="submit" class="btn btn-primary mt-5">
+              <button type="submit" class="btn btn-success mt-5">
                 Actualizar
               </button>
               <button
                 type="button"
-                class="btn btn-primary mt-5"
+                class="btn btn-secondary mt-5"
                 onclick="window.location.href='/designs/showDesign/<%= result.id_design%>'"
               >
                 Cancelar

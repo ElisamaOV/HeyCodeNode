@@ -8,11 +8,10 @@
     <%- include('./modules/navbar.ejs') %>
     <main class="align-content-center">
       <h1 class="text-center mb-5">Inicio de sesión</h1>
-
       <div class="container-xxl d-flex justify-content-center">
         <form class="w-50" action="/designer/login" method="post">
           <div class="row d-flex flex-column align-items-center">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-lg-8">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
                 <input
@@ -25,7 +24,7 @@
                 />
               </div>
             </div>
-            <div class="col-12 col-md-8 mt-3">
+            <div class="col-12 col-lg-8 mt-3">
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input
@@ -38,11 +37,11 @@
               </div>
               <p class="pt-3 text-danger"><%= advice %></p>
             </div>
-            <div class="col-12 col-md-8 mt-4 text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="col mt-4 text-center">
+              <button class="btn btn-success">Log In</button>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-secondary"
                 onclick="window.location.href='/'"
               >
                 Volver

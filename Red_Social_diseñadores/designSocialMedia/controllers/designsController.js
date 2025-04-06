@@ -146,6 +146,26 @@ class DesignsControllers {
       }
     });
   };
+
+  showDesignSearch = (req, res) => {
+    const { type } = req.body;
+    const search = `%${type}%`;
+    let values = [search, search, search, search];
+
+    let sql =
+      'select * from design where name like ? or fabric like ? or color like ? or type like ?';
+    connection.query(sql, values, (err, result) => {
+      if (err) {
+        throw err;
+      } else {
+        if (result[0] == null) {
+          res.render('searchNotFound', { type });
+        } else {
+          res.render('search', { result, type });
+        }
+      }
+    });
+  };
 }
 
 module.exports = new DesignsControllers();

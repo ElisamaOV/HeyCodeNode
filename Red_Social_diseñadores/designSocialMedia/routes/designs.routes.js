@@ -20,5 +20,6 @@ router.post(
 router.get('/man', designsControllers.showMan);
 router.get('/woman', designsControllers.showWoman);
 router.get('/delete/:id', designsControllers.delete);
+router.post('/search', designsControllers.showDesignSearch);
 
 module.exports = router;
